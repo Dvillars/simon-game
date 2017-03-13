@@ -1,0 +1,83 @@
+//---npm commands ... duh---
+$ npm init
+$ npm install gulp --save-dev
+$ npm install browserify --save-dev
+$ npm install gulp --save-dev
+$ npm install vinyl-source-stream --save-dev
+$ npm install gulp-concat --save-dev
+$ npm install gulp-uglify --save-dev
+$ npm install gulp-util --save-dev
+$ npm install del --save-dev
+$ npm install jshint --save-dev
+$ npm install gulp-jshint --save-dev
+
+//-------------------------
+
+//---gulpfile.js---
+var gulp = require('gulp');
+    -gulp is the main helper tool
+
+var browserify = require('browserify');
+    -browserify grabs all the node references and puts in the code necessary to run it in a browser environment
+
+var source = require('vinyl-source-stream');
+    -this is an unexplained function that helps with browserify
+
+var concat = require('gulp-concat');
+    -this sticks all your js files together
+
+var uglify = require('gulp-uglify');
+    -this minifies all your js files and compresses them, only necessary to do in the build environment
+
+var utilities = require("gulp-util");
+    -this adds the environmental variables needed to declare whether or not you're in a production mode or not
+
+var del = require('del');
+    -this adds the cleanup functionality for the delete methods
+
+var jshint = require('gulp-jshint');
+    -jshint helps by looking through your code for typos and other errors
+
+
+==================COPYPASTA OF GULP FUNCTIONS======================
+
+gulp.task('concatInterface', function() {
+  return gulp.src(['./js/*-interface.js'])
+  .pipe(concat('allConcat.js'))
+  .pipe(gulp.dest('./tmp'));
+});
+
+gulp.task('jsBrowserify', ['concatInterface'], function() {
+  return browserify({ entries: ['./tmp/allConcat.js'] })
+    .bundle()
+    .pipe(source('app.js'))
+    .pipe(gulp.dest('./build/js'));
+});
+
+gulp.task("minifyScripts", ["jsBrowserify"], function(){
+  return gulp.src("./build/js/app.js")
+    .pipe(uglify())
+    .pipe(gulp.dest("./build/js"));
+});
+
+gulp.task("build", ["clean"], function(){
+  if (buildProduction) {
+    gulp.start('minifyScripts');
+  } else {
+    gulp.start('jsBrowserify');
+  }
+});
+
+gulp.task("clean", function(){
+  return del(['build', 'tmp']);
+});
+
+gulp.task('jshint', function(){
+  return gulp.src(['js/*.js'])
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
+});
+
+==============END COPYPASTA OF GULP FUNCTIONS======================
+
+//---------------
