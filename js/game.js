@@ -4,6 +4,7 @@ function Game() {
   this.turnCounter = 1;
   this.sequenceOrder = 0;
   this.colors = ["red", "blue", "green", "yellow"];
+  this.scores = [];
 }
 
 Game.prototype.addPress = function(newPress) {
@@ -33,10 +34,20 @@ Game.prototype.isTurnOver = function() {
 };
 
 // End-of-turn cleanup function
-Game.prototype.turnCleanup = function () {
+Game.prototype.turnCleanUp = function () {
   this.playerPressList = [];
   this.sequenceOrder = 0;
   this.turnCounter++;
+  this.generateExpectedPress();
+};
+
+// End-of-game cleanup function
+Game.prototype.gameCleanUp = function () {
+  this.scores.push(this.turnCounter);
+  this.playerPressList = [];
+  this.expectedList = [];
+  this.turnCounter = 1;
+  this.sequenceOrder = 0;
   this.generateExpectedPress();
 };
 

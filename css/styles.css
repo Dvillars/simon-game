@@ -1,0 +1,27 @@
+body {
+  color: salmon;
+  background-color: black
+}
+
+.flash {
+  display: none;
+}
+
+.simon-button {
+  height: 200px;
+  width: 200px;
+  border-color: salmon;
+}
+
+#green {
+  background-color: darkgreen;
+}
+#red {
+  background-color: darkred;
+}
+#blue {
+  background-color: darkblue;
+}
+#yellow {
+  background-color: gold;
+}

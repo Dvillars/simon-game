@@ -3,22 +3,36 @@
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script type="text/javascript" src="build/js/app.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="css/styles.css" media="screen" type="text/css">
     <title>Simon</title>
   </head>
-  <body>
+  <body class="container">
     <h1>yo how yall dooin' up in here</h1>
     <div id="game-start">
       <h3>Start by clicking a color!</h3>
     </div>
-    <button type="button" class="simon-button" id="green" value="green">green</button>
-    <button type="button" class="simon-button" id="red" value="red">red</button>
-    <button type="button" class="simon-button" id="yellow" value="yellow">yellow</button>
-    <button type="button" class="simon-button" id="blue" value="blue">blue</button>
-    <div>current</div>
+    <div class="row">
+      <button type="button" class="left-top simon-button btn" id="green" value="green">green</button>
+      <button type="button" class="left-top simon-button btn flash" id="green-flash" value="green">green</button>
+      <button type="button" class="right-top simon-button btn" id="red" value="red">red</button>
+      <button type="button" class="right-top simon-button btn flash" id="red-flash" value="red">red</button>
+    </div>
+    <div class="row">
+      <button type="button" class="left-bottom simon-button btn" id="yellow" value="yellow">yellow</button>
+      <button type="button" class="left-bottom simon-button btn flash" id="yellow-flash" value="yellow">yellow</button>
+      <button type="button" class="right-bottom simon-button btn" id="blue" value="blue">blue</button>
+      <button type="button" class="right-bottom simon-button btn flash" id="blue-flash" value="blue">blue</button>
+    </div>
+    <div class="row">
+    </div>
+    <div class="row">
+    </div>
+    <h3>current</h3>
     <div id="current"></div>
-    <div>expected</div>
+    <h3>expected</h3>
     <div id="expected"></div>
-    <div>stupid???</div>
+    <h3>game state</h3>
     <div id="stupid"></div>
   </body>
 </html>
