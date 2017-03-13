@@ -7,15 +7,16 @@
   </head>
   <body>
     <h1>yo how yall dooin' up in here</h1>
-    <form id="basic-form">
-      <input type="number" id="test-input">
-      <button type="submit">hummm</button>
-    </form>
-    <button type="button" id="green">green</button>
-    <button type="button" id="red">red</button>
-    <button type="button" id="yellow">yellow</button>
-    <button type="button" id="blue">blue</button>
-
-    <p id="result"></p>
+    <div id="game-start">
+      <h3>Start by clicking a color!</h3>
+    </div>
+    <button type="button" class="simon-button" id="green" value="green">green</button>
+    <button type="button" class="simon-button" id="red" value="red">red</button>
+    <button type="button" class="simon-button" id="yellow" value="yellow">yellow</button>
+    <button type="button" class="simon-button" id="blue" value="blue">blue</button>
+    <div>current</div>
+    <div id="current"></div>
+    <div>expected</div>
+    <div id="expected"></div>
   </body>
 </html>

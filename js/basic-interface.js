@@ -1,4 +1,4 @@
-var InputTaker =  require("./../js/basic.js").basicModule;
+var InputTaker = require("./../js/basic.js").basicModule;
 
 $(function() {
   $("#basic-form").submit(function(event) {

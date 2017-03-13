@@ -81,3 +81,8 @@ gulp.task('jshint', function(){
 ==============END COPYPASTA OF GULP FUNCTIONS======================
 
 //---------------
+
+
+
+General Spec list:
+Take a sequence of button presses as inputs from the user and store them, and then return on clicking a different button
